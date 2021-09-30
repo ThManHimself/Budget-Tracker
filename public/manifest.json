@@ -1,0 +1,51 @@
+{
+    "name": "Budget Tracker",
+    "short_name": "$$$",
+    "description": "An app that allows you to view your spending habbits, keep track of money spent on vacations, or for any other purpose you might need to track your spending!",
+    "background_color": "#01579b",
+    "theme_color": "#ffffff",
+    "icon": [
+        {
+            "src": "icon/icon-72x72.png",
+            "sizes": "72x72",
+            "type": "png"
+        },
+        {
+            "src": "icon/icon-96x96.png",
+            "sizes": "96x96",
+            "type": "png"
+        },
+        {
+            "src": "icon/icon-128x128.png",
+            "sizes": "128x128",
+            "type": "png"
+        },
+        {
+            "src": "icon/icon-144x144.png",
+            "sizes": "144x144",
+            "type": "png"
+        },
+        {
+            "src": "icon/icon-152x152.png",
+            "sizes": "152x152",
+            "type": "png"
+        },
+        {
+            "src": "icon/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "png"
+        },
+        {
+            "src": "icon/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "png"
+        },
+        {
+            "src": "icon/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "png"
+        }
+    ],
+    "start_url": "./index.html",
+    "display": "standalone"
+}
