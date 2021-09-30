@@ -28,12 +28,12 @@ function populateTable() {
 	let tbody = document.querySelector("#tbody");
 	tbody.innerHTML = "";
 
-	transactions.forEach(transaction => {
+	transactions.forEach(addOrSub => {
 		// create and populate a table row
 		let tr = document.createElement("tr");
 		tr.innerHTML = `
-			<td>${transaction.name}</td>
-			<td>${transaction.value}</td>
+			<td>${addOrSub.name}</td>
+			<td>${addOrSub.value}</td>
 		`;
 
 		tbody.appendChild(tr);
@@ -93,7 +93,7 @@ function sendTransaction(isAdding) {
 	}
 
 	// create record
-	let transaction = {
+	let addOrSub = {
 		name: nameEl.value,
 		value: amountEl.value,
 		date: new Date().toISOString()
@@ -101,11 +101,11 @@ function sendTransaction(isAdding) {
 
 	// if subtracting funds, convert amount to negative number
 	if (!isAdding) {
-		transaction.value *= -1;
+		addOrSub.value *= -1;
 	}
 
 	// add to beginning of current array of data
-	transactions.unshift(transaction);
+	transactions.unshift(addOrSub);
 
 	// re-run logic to populate ui with new record
 	populateChart();
@@ -115,7 +115,7 @@ function sendTransaction(isAdding) {
 	// also send to server
 	fetch("/api/transaction", {
 		method: "POST",
-		body: JSON.stringify(transaction),
+		body: JSON.stringify(addOrSub),
 		headers: {
 			Accept: "application/json, text/plain, */*",
 			"Content-Type": "application/json"
@@ -136,7 +136,7 @@ function sendTransaction(isAdding) {
 	})
 	.catch(err => {
 		// fetch failed, so save in indexed db
-		saveRecord(transaction);
+		saveRecord(addOrSub);
 
 		// clear form
 		nameEl.value = "";
